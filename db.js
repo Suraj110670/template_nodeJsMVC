@@ -9,4 +9,10 @@ const pool = new Pool({
   port: 5432,
 });
 
+// Confirm connection to database
+pool.query('SELECT NOW()', (err, res) => {
+    console.log(err, res);
+    pool.end();
+  });
+  
 module.exports = pool;
